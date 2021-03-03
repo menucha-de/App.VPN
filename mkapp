@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+set -x
+
+env
+
+. /usr/share/mkapp/functions
+
+if [ "$PACKAGING" ]; then
+
+  rewrite
+  build -F
+
+  if [ "$PUBLISH" ]; then
+    publish_debs
+  fi
+fi
+
+if [ "$IMAGING" ]; then
+  mkdir -p rfs/bin rfs/usr/bin rfs/sbin rfs/usr/sbin rfs/tmp rfs/etc
+  echo "nameserver 8.8.8.8" > rfs/etc/resolv.conf
+  ln -s ip.sh rfs/sbin/ip
+
+  init
+  update
+  setup busybox vpn
+  sed -i '/^ADD rfs \//i RUN ["busybox", "--install", "-s"]' Dockerfile
+  finish '/opt/peramic-app' '["/opt/peramic-app/vpn", "-p", "1194"]'
+  cat Dockerfile
+fi

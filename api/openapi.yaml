@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: App vpn
+  description: App vpn
+  contact:
+    name: Support
+    email: support@peraMIC.io
+  version: 1.0.0
+servers:
+- url: https://{host-ip}/vpn
+  description: App vpn
+  variables:
+    host-ip:
+      description: The ip of the host
+      default: 10.10.10.10
+security:
+- basic_auth: []
+tags:
+- name: VPN
+paths:
+  /default/config:
+    put:
+      tags:
+      - VPN
+      summary: Uploads OpenVPN config
+      operationId: UploadOpenVPNConfig
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        "204":
+          description: Uploads OpenVPN config successfully
+  /default/log:
+    get:
+      tags:
+      - VPN
+      summary: Provides log content
+      operationId: DownloadOpenVPNlog
+      responses:
+        "200":
+          description: Log content
+          content:
+            "text/plain":
+              schema:
+                type: string
+  /default/enable:
+    get:
+      tags:
+      - VPN
+      summary: Returns the enable state if config exists
+      operationId: IsEnabled
+      responses:
+        "200":
+          description: The enable state
+          content:
+            "text/plain":
+              schema:
+                type: "string"
+                enum:
+                - true
+                - false
+        "404":
+          description: No config available
+    put:
+      tags:
+      - VPN
+      summary: Sets the enable state if config exists
+      operationId: SetEnable
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "202":
+          description: State change successfully
+        "400":
+          description: Invalid value
+        "404":
+          description: No config available
+components:
+  schemas: {}
+  securitySchemes:
+    basic_auth:
+      type: http
+      scheme: basic

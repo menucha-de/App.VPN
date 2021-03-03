@@ -1,0 +1,8 @@
+Source: vpn
+Maintainer: peraMIC <opensource@peraMIC.io>
+Build-Depends: debhelper, golang:native, git, crossbuild-essential-armhf:all, libc6
+
+Package: vpn
+Architecture: any
+Depends: ${shlibs:Depends}, openvpn, swagger-ui
+Description: VPN App Service
