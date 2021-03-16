@@ -1,8 +1,8 @@
 /*
  * App vpn
  *
- * API version: 0.0.1
- * Contact: support@peraMIC.io
+ * API version: 1.0.0
+ * Contact: info@menucha.de
  */
 
 package main
@@ -13,9 +13,9 @@ import (
 	"html"
 	"net/http"
 
-	"github.com/peramic/App.VPN/vpn"
-	"github.com/peramic/logging"
-	"github.com/peramic/utils"
+	"github.com/menucha-de/App.VPN/vpn"
+	"github.com/menucha-de/logging"
+	"github.com/menucha-de/utils"
 )
 
 var log *logging.Logger = logging.GetLogger("vpn")

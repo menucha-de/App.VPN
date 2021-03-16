@@ -2,13 +2,13 @@
  * App vpn
  *
  * API version: 1.0.0
- * Contact: support@peraMIC.io
+ * Contact: info@menucha.de
  */
 
 package vpn
 
 import (
-	"github.com/peramic/utils"
+	"github.com/menucha-de/utils"
 )
 
 // Routes returns all of the api route for the Controller

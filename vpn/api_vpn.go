@@ -2,7 +2,7 @@
  * App vpn
  *
  * API version: 1.0.0
- * Contact: support@peraMIC.io
+ * Contact: info@menucha.de
  */
 
 package vpn

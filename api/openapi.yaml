@@ -4,7 +4,7 @@ info:
   description: App vpn
   contact:
     name: Support
-    email: support@peraMIC.io
+    email: info@menucha.de
   version: 1.0.0
 servers:
 - url: https://{host-ip}/vpn

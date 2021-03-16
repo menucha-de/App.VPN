@@ -1,3 +1,3 @@
-target/vpn /opt/peramic-app/
-api/openapi.yaml /opt/peramic-app/www/
+target/vpn /opt/menucha-de/
+api/openapi.yaml /opt/menucha-de/www/
 ip.sh /sbin/

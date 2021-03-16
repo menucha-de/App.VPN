@@ -26,6 +26,6 @@ if [ "$IMAGING" ]; then
   update
   setup busybox vpn
   sed -i '/^ADD rfs \//i RUN ["busybox", "--install", "-s"]' Dockerfile
-  finish '/opt/peramic-app' '["/opt/peramic-app/vpn", "-p", "1194"]'
+  finish '/opt/menucha-de' '["/opt/menucha-de/vpn", "-p", "1194"]'
   cat Dockerfile
 fi
